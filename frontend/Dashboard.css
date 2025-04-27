@@ -1,0 +1,118 @@
+/* Dashboard.css */
+
+/* Define CSS variables for easy theme updates */
+:root {
+  --primary-color: #66fcf1;
+  --background-color: rgba(255, 255, 255, 0.06);
+  --card-background: rgba(255, 255, 255, 0.05);
+  --card-hover-background: rgba(255, 255, 255, 0.1);
+  --border-color: rgba(255, 255, 255, 0.2);
+  --error-color: #ff6b6b;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* 1) Main container for dashboard content */
+.dashboard {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background: var(--background-color);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  color: #fff;
+}
+
+/* 2) Grid layout for your panels */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* This forces 2 columns of equal width */
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* 3) Each card/panel in the grid */
+.dashboard-item {
+  background: var(--card-background);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.dashboard-item:hover {
+  background: var(--card-hover-background);
+  transform: translateY(-5px);
+}
+
+/* 4) Headings for each section/card */
+.dashboard-item h2 {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+/* 5) Map section styling */
+.map-section {
+  width: 100%;
+  height: 500px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Ensuring the map fills the container */
+.map-section .leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* 6) Styling for sensor, incident, and route entries */
+.sensor-entry,
+.incident-entry,
+.route-entry {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: background 0.3s ease;
+}
+
+.sensor-entry:hover,
+.incident-entry:hover,
+.route-entry:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sensor-entry:last-child,
+.incident-entry:last-child,
+.route-entry:last-child {
+  border-bottom: none;
+}
+
+/* 7) Error message styling */
+.error {
+  color: var(--error-color);
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* 8) Responsive adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+  .dashboard {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .map-section {
+    height: 300px;
+  }
+
+  .dashboard-item h2 {
+    font-size: 1.4rem;
+  }
+}

@@ -1,0 +1,175 @@
+/* App.css */
+
+
+
+/* Universal Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CSS Variables for Theme */
+:root {
+  --primary-color: #66fcf1;
+  --secondary-color: #45a29e;
+  --bg-dark: #0b0c10;
+  --bg-gradient-start: #0b0c10;
+  --bg-gradient-mid: #1f2833;
+  --bg-gradient-end: #151719;
+  --text-color: #c5c6c7;
+  --font-family: 'Roboto', sans-serif;
+  --transition-speed: 0.3s;
+}
+
+/* Base Typography & Background */
+html, body {
+  font-family: var(--font-family);
+  background: var(--bg-dark); /* Fallback color */
+  color: #fff;
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-mid) 50%, var(--bg-gradient-end) 100%);
+}
+
+/* Primary App Container */
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* World Clocks */
+.world-clocks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background: var(--bg-dark);
+  padding: 0.5rem 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.clock {
+  font-size: 1rem;
+  color: var(--primary-color);
+}
+
+.city {
+  font-weight: bold;
+  margin-right: 0.2rem;
+}
+
+.time {
+  font-family: 'Courier New', monospace;
+}
+
+/* Header / Navigation Bar */
+.App-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 2rem;
+  background: var(--bg-dark);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  margin-top: 250px;
+}
+
+.App-header h1 {
+  font-size: 2rem;
+  color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Tracking Form in Header */
+.track-shipment-form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.track-shipment-form input[type="text"] {
+  padding: 0.6rem;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.track-shipment-form button {
+  padding: 0.6rem 1rem;
+  background: var(--secondary-color);
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+  transition: background var(--transition-speed);
+}
+
+.track-shipment-form button:hover {
+  background: var(--primary-color);
+}
+
+/* App Logo (with Spin Animation) */
+.App-logo {
+  height: 20vmin;
+  pointer-events: none;
+  margin-top: 40px;
+  transition: transform var(--transition-speed) ease-in-out;
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.5));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin 15s linear infinite;
+  }
+}
+
+.App-logo:hover {
+  transform: scale(1.05);
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Links */
+.App-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  position: relative;
+  transition: color var(--transition-speed);
+}
+
+.App-link:hover {
+  color: var(--secondary-color);
+  text-shadow: 0 0 4px var(--primary-color);
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .App-header h1 {
+    font-size: 1.6rem;
+  }
+  .track-shipment-form {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .track-shipment-form input[type="text"],
+  .track-shipment-form button {
+    width: 100%;
+    border-radius: 4px;
+  }
+}
